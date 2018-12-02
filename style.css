@@ -1,0 +1,14 @@
+/*font for sub texts or articles:
+ font-family: 'Quando', serif;
+ 
+ font for title and sub titles:
+font-family: 'Vollkorn', serif; */
+
+
+.background{
+    background-color: rgb(185, 223, 119);
+}
+.articleHeading, .article{
+font-family: 'Vollkorn', serif;
+}
+
