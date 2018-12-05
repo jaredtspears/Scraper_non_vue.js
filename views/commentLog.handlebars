@@ -1,0 +1,37 @@
+{{!-- for leaving a comment and logging prior comments --}}
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+            <span class="card-title">{{this.title}}</span>
+            <p>{{this.summary}}</p>
+        </div>
+           {{!-- should have some sort of form here for the comments to be written --}}
+            <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="input_text" type="text" data-length="20">
+                        <label for="input_text">UserName</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="input_text_article" type="text" data-length="40">
+                        {{!-- notifying user that they are commenting on a specific article --}}
+                        <p>Thank you for leaving a comment on: {{this.title}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p>Let your thoughts be heard:</p>
+                        <textarea id="textarea2" class="materialize-textarea" data-length="1000"></textarea>
+                        <label for="textarea2">Article Comment Area</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+  </div>
+
+</div>

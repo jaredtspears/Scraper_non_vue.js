@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Medium Syfter</title>
+      <!-- style.css -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Quando|Vollkorn" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- animation.css installed as a npm but have the cdn just in case-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
+    <!-- with this stylesheet below just add class=animated to any element -->
+    <!-- <link rel="stylesheet" href="animate.min.css"> -->
+    <!-- materialize css (installed npm as well just to ensure latest version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="background">
+    <!-- nav bar the materialize.js is not working yet do research on this for full functionality -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Article Sifter</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">Menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Logged Articles</a></li>
+                <li><a href="#">Resently Searched</a></li>
+                <li><a href="#">Recommended</a></li>
+                <li><a href="#">Your Comment Log</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+
+
+    <!-- materialize container -->
+    <div class="container">
+
+        <!-- heading -->
+        <h1 class="center-align">Article Sifter</h1>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae facere, minima perferendis repellat
+            architecto reiciendis accusamus velit, quia voluptatum recusandae sunt illum, quibusdam voluptatibus
+            mollitia? Deserunt assumenda quisquam accusamus vero?</p>
+
+        <!-- this is just a test for hiding content when in a smaller media query like a phone -->
+        <p class="hide-on-small-only">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae facere, minima
+            perferendis repellat architecto reiciendis accusamus velit, quia voluptatum recusandae sunt illum,
+            quibusdam voluptatibus mollitia? Deserunt assumenda quisquam accusamus vero?</p>
+
+
+    {{{body}}}
+    
+    </div>
+    <!-- Materialize Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- js styling files -->
+    <script src="./assets/js/materialize.js"></script>
+    <!-- app.js -->
+    <script src="./app.js"></script>
+
+    <!-- anime.js may not need this if I ran npm -->
+    <!-- <script src="anime.min.js"></script> -->
+</body>
+
+</html>

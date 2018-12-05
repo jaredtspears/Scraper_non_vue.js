@@ -1,0 +1,26 @@
+<div class="container">
+    {{!-- this is the key i need on the object in routes --}}
+    {{#each article}}
+      <!-- created a simpled colored container for the articles -->
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    {{!-- calling in the title scrapped --}}
+                    <span class="card-title">{{this.title}}</span>
+                    {{!-- summary scrapped --}}
+                    <p>{{this.summary}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">veiw Article</a>
+                    {{!-- button for commenting --}}
+                    <div class="btn">
+                        {{!-- tied to _id for linking to the correct article --}}
+                        <a id="comment" data-id= "{{this._id}}">Leave Comment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
