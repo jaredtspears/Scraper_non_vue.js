@@ -16,18 +16,12 @@ app.get('/', (req,res) => {
     // finding all articles
     db.Article.find({})
       .sort({timestamp:-1})
-      .then((dbArticles) => {
-          
-         
-            res.render('articles', {article:dbArticles});
-        
+      .then((dbArticle) => {
+            res.render('articles', {article:dbArticle});
       })
-//   res.render('home',{ })
 })
 
-
 // /====all route====
-
 app.get("/all", (req,res)=>{
     db.Article.find({}, (err, data) =>{
       if (err) {
@@ -50,24 +44,31 @@ app.get("/scrape-n-paste", function (req, res){
       // An empty array to save the data that we'll scrape
       var results = [];
   
-      $("h3.ai").each(function(i, element) {
+    //   this website had a very hard structure to follow for scraping ran out of time (the structure was many abritrary letters deep)
+      $("h3 .ai").each(function(i, element) {
         var article= {};
         var title = $(element).children().text();
-        var link = $(element).children().attr("href");
-        var summary = $(element).children().attr('href'); //this was something that when we did this in class we didnt need the summary
+        var link = $(this).children("a").attr("href");
+        // var summary = $(element).ch'i'ldren().attr('href'); //this was something that when we did this in class we didnt need the summary
         // not sure how to set up the summary for the article 
         //var summary = $(this).children();
     
         article.title=title; 
         article.link=link;
-        article.summary=summary; //might not need this
+        // article.summary=summary; //might not need this
 
         //pushing object into the results array
         results.push(article);
         // results 
-        db.Article.create(article); //this is what worked for another person
+        db.Article.create(article) //this is what worked for another person
         // db.Article.insert({"title":title, "link":link })
-      });
+        .then(dbArticle =>{
+            console.log("\nArticle scraped: ${dbArticle}");
+        })
+        .catch(err => {
+            console.log("\nError while saving to database: ${err}");
+          });
+    });
       console.log(results);
   
     });
@@ -93,10 +94,10 @@ app.get("/article/:id", (req,res) =>{
     var id = req.params.id;
 
     // this should be the comments that are logged
-    db.Articles.findById(id)
+    db.Article.findById(id)
     .populate("comment")
-    .then((dbArticles)=>{
-        res.json(dbArticles);
+    .then((dbArticle)=>{
+        res.json(dbArticle);
     })
     .catch((err)=>{
         res.json(err);
@@ -110,7 +111,7 @@ app.post("/comment/:id", (req,res) =>{
     // these comments need to be tied to the _id of the article
     db.Comment.create(req.body)
     .then((dbComment)=>{
-        return db.Articles.findOneAndUpdate({
+        return db.Article.findOneAndUpdate({
             _id:id
         },
         { 
@@ -122,8 +123,8 @@ app.post("/comment/:id", (req,res) =>{
             new: true, upsert: true
         });
     })
-    .then((dbArticles)=>{
-        res.json(dbArticles);
+    .then((dbArticle)=>{
+        res.json(dbArticle);
     })
     .catch((err)=>{
         res.json(err);

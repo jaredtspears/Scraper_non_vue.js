@@ -44,15 +44,6 @@ app.use(express.static("public"));
 var databaseUrl = "mediumArticlesDB";
 var collections = ["articles"];
 
-// this is for the handlebars not sure if I am doing this correctly
-//===========================================================
-  // joining in directory name and the folder name is views
-  // app.set('public', path.join(__dirname, 'public'));
-  // app.engine('handlebars', exphb({defaultLayout: 'main'}));
-  // // setting view engine to handlebars
-  // app.set('view engine', 'handlebars');
-//===========================================================
-
 // require routes file. app is the express module being called directly
 require("./routes/routes.js")(app);
 

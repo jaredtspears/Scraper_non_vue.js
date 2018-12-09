@@ -12,12 +12,15 @@
                     <p>{{this.summary}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">veiw Article</a>
-                    {{!-- button for commenting --}}
-                    <div class="btn">
-                        {{!-- tied to _id for linking to the correct article --}}
-                        <a id="comment" data-id= "{{this._id}}">Leave Comment</a>
-                    </div>
+                    <a href="{{this.link}}">veiw Article</a>
+                    {{!-- button for saved or save --}}
+                   <div class="col-lg-4 align-self-end text-right">
+                    {{#if saved}}
+                        <button class="btn btn-secondary m-2 disabled">Article Saved</button>
+                    {{else}}
+                        <button class="btn btn-success m-2 btn-save" data-id="{{this._id}}">Save Article</button>
+                    {{/if}}
+                </div>
                 </div>
             </div>
         </div>
